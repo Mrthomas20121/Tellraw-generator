@@ -1,0 +1,7 @@
+text = "Hello there!"
+color = "gold"
+bold = "true"
+underlined = "false"
+strikethrough = "false"
+obfuscated = "false"
+selector = "@p"
