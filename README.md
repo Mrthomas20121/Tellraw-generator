@@ -9,4 +9,5 @@ Shortcut for Import is CTRL+I, Shortcut for Export is CTRL+E
 to use the app on your machine do the following:
 
 `git clone https://github.com/Mrthomas20121/Tellraw-Generator.git`
-then do npm start
+then do 
+`npm install` and `npm start` 
