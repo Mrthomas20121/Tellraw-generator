@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>
+    Mrthomas20121's tellraw generator
+    </title>
+    <!-- css and scripts -->
+    <script>
+            window.$ = window.jQuery = require('../node_modules/jquery/dist/jquery.js');  
+    </script>
+    <script src="../node_modules/clipboard/dist/clipboard.js"></script>
+    <link ref="stylesheet" href="../node_modules/pretty-checkbox/dist/pretty-checkbox.css"/>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="../node_modules/bootswatch/cyborg/bootstrap.css"/>
+    <link rel="stylesheet" href="./css/electron.css"/>
+	<script src="./menu.js"></script>
+</head>
+<body onload="updatecmd()" ondragstart="return false;" ondrop="return false;">
+  <div class="container-fluid">
+    <div class="form-group">
+    <label for="selector">Selector</label>
+    <select id="selector" name="selector" class="form-control" onchange="updatecmd()">
+    <option id="@a" value="@a" selected>@a : Everyone</option>
+    <option id="@p" value="@p">@p : Newest player</option>
+    <option id="@r" value="@r">@r : Random player</option>
+    <option id="@s" value="@s">@s</option>
+    </select>
+    <fieldset id="cmds">
+      <legend>Commands</legend>
+    <label for="text">Text</label>
+    <input id="text" name="text" type="text" class="form-control" oninput="updatecmd()"/>
+    <label for="color">Color</label>
+    <select id="color" name="color" class="form-control" onchange="updatecmd()">
+      <option value="red">Red</option>
+      <option value="dark_red">dark red</option>
+      <option value="dark_blue">dark blue</option>
+      <option value="blue">blue</option>
+      <option value="dark_aqua">dark aqua</option>
+      <option value="green">green</option>
+      <option value="dark_green">dark green</option>
+      <option value="aqua">aqua</option>
+      <option value="gold">gold</option>
+      <option value="yellow">yellow</option>
+      <option value="dark_gray">dark gray</option>
+      <option value="gray">gray</option>
+      <option value="black">black</option>
+      <option value="rose">rose</option>
+      <option value="purple">purple</option>
+      <option value="white" selected>white</option>
+      </select>
+    <br/>
+      <div class="pretty p-default">
+        <input type="checkbox" id="bold" onclick="updatecmd()"/>
+        <div class="state"><label for="bold">Bold</label>
+        </div>
+      </div>
+    <br/>
+      <div class="pretty p-default">
+        <input type="checkbox" id="underlined" onclick="updatecmd()"/>
+        <div class="state"><label for="underlined">Underlined</label>
+        </div>
+      </div>
+      <br/>
+      <div class="pretty p-default">
+        <input type="checkbox" id="strikethrough" onclick="updatecmd()"/>
+        <div class="state"><label for="strikethrough">strikethrough</label>
+        </div>
+      </div>
+      <br/>
+      <div class="pretty p-default">
+        <input type="checkbox" id="obfuscated" onclick="updatecmd();"/>
+        <div class="state"><label for="obfuscated">obfuscated</label>
+        </div>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend for="cmd">Result</legend>
+      <textarea id="cmd" class="form-control"></textarea>
+    </fieldset>
+      <script>
+        $( document ).ready(function() {
+        var clipboard = new Clipboard('.clipboard');
+        });
+      </script>
+      <a class="button clipboard" onclick="copyCmd();" href="#"  data-clipboard-target="#cmd">Copy Command</a>
+    </div>
+    <script src="api.js"></script>
+  </div>
+</body>
+</html>
