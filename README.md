@@ -1,12 +1,11 @@
-# tellraw generator, a electron /tellraw generator for minecraft 1.8+
 
-you can now import / export file to .command_block, .mc and .tellraw.
+## Tellraw Generator, a Minecraft commands Generator for minecraft 1.8+
+easy import / export file to edit existing command/export commands(CTRL+I = import and CTRL+E = export).
+> note: data is saved as json and easily readable
 
-the app can read these 3 file format.
-
-Shortcut for Import is CTRL+I, Shortcut for Export is CTRL+E
-
-to use the app on your machine do the following:
-
-`git clone https://github.com/Mrthomas20121/Tellraw-Generator.git`
-then do npm start
+| Command | Supported |
+| :-------------: |:-------------:|
+| Tellraw          | Yes              |
+| Summon | Soon |
+| Give | Soon |
+| Execute| No |

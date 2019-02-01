@@ -18,6 +18,9 @@ let updatecmd = () => {
     "strikethrough" : strikethrough,
     "obfuscated" : obfuscated,
   };
+  let res = [
+    cmdParam
+  ]
   if(!bold) {
 	delete cmdParam.bold;
   };
@@ -30,6 +33,57 @@ let updatecmd = () => {
   if(!obfuscated) {
 	delete cmdParam.obfuscated;
   }
-  cmd = `tellraw ${selector} [${JSON.stringify(cmdParam)}]`;
+  if(res.length == 1)   cmd = `tellraw ${selector} ${JSON.stringify(cmdParam)}`;
+  else cmd = `tellraw ${selector} ${JSON.stringify(res)}`;
   result.value = cmd;
+  var preview = document.getElementById('preview')
+  if(color == 'red') {
+    preview.style.color = '#FF5555'
+  }
+  else if(color == 'dark_red') {
+    preview.style.color = '#AA0000'
+  }
+  else if(color == 'dark_blue') {
+    preview.style.color = '#0000AA'
+  }
+  else if(color == 'blue') {
+    preview.style.color = '#5555FF'
+  }
+  else if(color == 'aqua') {
+    preview.style.color = '#55FFFF'
+  }
+  else if(color == 'dark_aqua') {
+    preview.style.color = '#00AAAA'
+  }
+  else if(color == 'green') {
+    preview.style.color = '#55FF55'
+  }
+  else if(color == 'dark_green') {
+    preview.style.color = '#00AA00'
+  }
+  else if(color == 'yellow') {
+    preview.style.color = '#FFFF55'
+  }
+  else if(color == 'gold') {
+    preview.style.color = '#FFAA00'
+  }
+  else if(color == 'rose') {
+    preview.style.color = '#FFAA00'
+  }
+
+  if(typeof cmdParam.text == 'string') {
+    preview.innerHTML = cmdParam.text
+  }
+  if(bold) {
+    preview.style.fontWeight = 'bold'
+  }
+  else {
+    preview.style.fontWeight = 'normal'
+  }
+  if(underlined) {
+    preview.style.textDecoration = 'underline'
+  }
+  else {
+    preview.style.textDecoration = 'none'
+  }
 }
