@@ -4,12 +4,13 @@
   "description": "Download and install mods!",
   "main": "app.js",
   "dependencies": {
-    "bootswatch": "^3.3.7",
     "electron": "^2.0.17",
-    "magic-check": "^1.0.3"
+    "magic-check": "^1.0.3",
+    "popper.js": "^1.14.7"
   },
   "devDependencies": {
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^4.1.2",
+    "bootswatch": "^4.2.1",
     "clipboard": "^1.7.1",
     "electron-context-menu": "^0.9.1",
     "electron-packager": "^8.6.0",
