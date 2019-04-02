@@ -8,3 +8,6 @@ _site
 *.bat
 *.code-workspace
 *.docx
+*.command
+*.mc
+*.tellraw
