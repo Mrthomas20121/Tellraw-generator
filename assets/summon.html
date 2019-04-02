@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>
+    Mrthomas20121's summon generator
+    </title>
+    <!-- css and scripts -->
+    <script>
+      window.$ = window.jQuery = require('../node_modules/jquery/dist/jquery.js');
+    </script>
+    <link rel="stylesheet" href="../node_modules/bootswatch/dist/cyborg/bootstrap.min.css"/>
+    <link rel="stylesheet" href="./css/app.css"/>
+    <link rel="stylesheet" href="./css/pretty.css"/>
+	<script src="./menu.js"></script>
+</head>
+<body onload="summon()" ondragstart="return false;" ondrop="return false;">
+  <div class="container-fluid">
+    <div class="form-group">
+    <label for="entity">Entity</label>
+    <select id="entity" name="entity" class="form-control" onchange="summon()">
+    <option value="minecraft:zombie" selected>Zombie</option>
+    <option value="minecraft:skeleton">Skeleton</option>
+    <option value="minecraft:enderdragon">EnderDragon</option>
+    <option value="minecraft:slime">Slime</option>
+    <option value="minecraft:endercrystal">EnderCrystal</option>
+    <option value="minecraft:witherskeleton">Wither Skeleton</option>
+    <option value="minecraft:wither">Wither</option>
+    <option value="minecraft:spider">Spider</option>
+    <option value="minecraft:cavespider">Cave Spider</option>
+    </select>
+    <div class="form-group">
+      <label for="text">Custom Name</label>
+      <input id="customName" name="customName" type="text" class="form-control" oninput="summon()"/>
+    </div>
+    <fieldset>
+      <legend for="cmd">Result</legend>
+      <textarea id="cmd" class="form-control" readonly></textarea>
+    </fieldset>
+      <script>
+        $( document ).ready(function() {
+        var clipboard = new Clipboard('.clipboard');
+        });
+      </script>
+      <a class="button clipboard" onclick="copyCmd();" href="#"  data-clipboard-target="#cmd">Copy Command</a>
+    </div>
+    <!-- handler -->
+    <script src="./scripts/handler.js"></script>
+    <!-- Jquery Loading -->
+    <script>
+      window.$ = window.jQuery = require('../node_modules/jquery/dist/jquery.js');  
+    </script>
+    <script src="../node_modules/clipboard/dist/clipboard.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+  </div>
+</body>
+</html>

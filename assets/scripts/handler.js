@@ -2,13 +2,22 @@
  * Handle summon command
  */
 function summon() {
-
+  let result = document.getElementById('cmd');
+  let entity = document.getElementById('entity').value;
+  let customName = document.getElementById('customName').value;
+  let cmd = {
+    customName
+  };
+  if(customName == '') {
+    delete cmd.customName
+  }
+  result.innerHTML = `/summon ${entity} ${JSON.stringify(cmd)}`
 }
 /**
  * handle Tellraw Command
  */
 function tellraw() {
-  let result = document.getElementById("cmd");
+  let result = document.getElementById('cmd');
   let color = document.getElementById('color').value;
   let text = document.getElementById('text').value;
   let selector = document.getElementById('selector').value;
@@ -16,7 +25,7 @@ function tellraw() {
   let underlined = document.getElementById('underlined').checked;
   let strikethrough = document.getElementById('strikethrough').checked;
   let obfuscated = document.getElementById('obfuscated').checked;
-  let cmdParam = {
+  let cmd = {
     "text" : text,
     "color" : color,
     "bold" : bold,
@@ -25,21 +34,21 @@ function tellraw() {
     "obfuscated" : obfuscated,
   };
   let res = [
-    cmdParam
+    cmd
   ]
   if(!bold) {
-	delete cmdParam.bold;
+	delete cmd.bold;
   };
   if(!underlined) {
-	delete cmdParam.underlined;
+	delete cmd.underlined;
   };
   if(!strikethrough) {
-	delete cmdParam.strikethrough;
+	delete cmd.strikethrough;
   };
   if(!obfuscated) {
-	delete cmdParam.obfuscated;
+	delete cmd.obfuscated;
   }
-  if(res.length == 1)   cmd = `tellraw ${selector} ${JSON.stringify(cmdParam)}`;
+  if(res.length == 1)   cmd = `tellraw ${selector} ${JSON.stringify(cmd)}`;
   else cmd = `tellraw ${selector} ${JSON.stringify(res)}`;
   result.value = cmd;
   var preview = document.getElementById('preview')
@@ -77,8 +86,8 @@ function tellraw() {
     preview.style.color = '#FFAA00'
   }
 
-  if(typeof cmdParam.text == 'string') {
-    preview.innerHTML = cmdParam.text
+  if(typeof cmd.text == 'string') {
+    preview.innerHTML = cmd.text
   }
   if(bold) {
     preview.style.fontWeight = 'bold'
