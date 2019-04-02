@@ -43,8 +43,8 @@ outline: none !important;
 }
 .form-control.preview, .form-control:focus.preview {
   box-shadow: none;
-  border-color:rgb(148, 148, 148);
-  background: rgb(148, 148, 148);
+  border-color:rgb(175, 175, 175);
+  background: rgb(255, 255, 255);
   color:#000;
 }
 option, option:hover, option:active, option:focus {

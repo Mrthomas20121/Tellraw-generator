@@ -31,7 +31,7 @@ app.on('ready', function() {
 
   //mainWindow.setMenu(null);
   mainWindow.loadURL(url.format({
-    pathname: path.join(__dirname, 'assets/tellraw.html'),
+    pathname: path.join(__dirname, 'assets/index.html'),
     protocol: 'file:',
     slashes: true
   }));

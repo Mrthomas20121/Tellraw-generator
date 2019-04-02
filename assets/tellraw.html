@@ -6,16 +6,19 @@
     Mrthomas20121's tellraw generator
     </title>
     <!-- css and scripts -->
+    <script>
+      window.$ = window.jQuery = require('../node_modules/jquery/dist/jquery.js');
+    </script>
     <link rel="stylesheet" href="../node_modules/bootswatch/dist/cyborg/bootstrap.min.css"/>
     <link rel="stylesheet" href="./css/app.css"/>
     <link rel="stylesheet" href="./css/pretty.css"/>
 	<script src="./menu.js"></script>
 </head>
-<body onload="updatecmd()" ondragstart="return false;" ondrop="return false;">
+<body onload="tellraw()" ondragstart="return false;" ondrop="return false;">
   <div class="container-fluid">
     <div class="form-group">
     <label for="selector">Selector</label>
-    <select id="selector" name="selector" class="form-control" onchange="updatecmd()">
+    <select id="selector" name="selector" class="form-control" onchange="tellraw()">
     <option id="@a" value="@a" selected>@a : Everyone</option>
     <option id="@p" value="@p">@p : Newest player</option>
     <option id="@r" value="@r">@r : Random player</option>
@@ -24,9 +27,9 @@
     <fieldset id="cmds">
       <legend>Commands</legend>
     <label for="text">Text</label>
-    <input id="text" name="text" type="text" class="form-control" oninput="updatecmd()"/>
+    <input id="text" name="text" type="text" class="form-control" oninput="tellraw()"/>
     <label for="color">Color</label>
-    <select id="color" name="color" class="form-control" onchange="updatecmd()">
+    <select id="color" name="color" class="form-control" onchange="tellraw()">
       <option value="red">Red</option>
       <option value="dark_red">dark red</option>
       <option value="dark_blue">dark blue</option>
@@ -46,25 +49,25 @@
       </select>
     <br/>
       <div class="pretty p-default">
-        <input type="checkbox" id="bold" onclick="updatecmd()"/>
+        <input type="checkbox" id="bold" onclick="tellraw()"/>
         <div class="state"><label for="bold">Bold</label>
         </div>
       </div>
     <br/>
       <div class="pretty p-default">
-        <input type="checkbox" id="underlined" onclick="updatecmd()"/>
+        <input type="checkbox" id="underlined" onclick="tellraw()"/>
         <div class="state"><label for="underlined">Underlined</label>
         </div>
       </div>
       <br/>
       <div class="pretty p-default">
-        <input type="checkbox" id="strikethrough" onclick="updatecmd()"/>
+        <input type="checkbox" id="strikethrough" onclick="tellraw()"/>
         <div class="state"><label for="strikethrough">strikethrough</label>
         </div>
       </div>
       <br/>
       <div class="pretty p-default">
-        <input type="checkbox" id="obfuscated" onclick="updatecmd();"/>
+        <input type="checkbox" id="obfuscated" onclick="tellraw()"/>
         <div class="state"><label for="obfuscated">obfuscated</label>
         </div>
       </div>
@@ -82,8 +85,9 @@
       </script>
       <a class="button clipboard" onclick="copyCmd();" href="#"  data-clipboard-target="#cmd">Copy Command</a>
     </div>
-    <script src="api.js"></script>
-    <!-- End script loading -->
+    <!-- handler -->
+    <script src="./scripts/handler.js"></script>
+    <!-- Jquery Loading -->
     <script>
       window.$ = window.jQuery = require('../node_modules/jquery/dist/jquery.js');  
     </script>

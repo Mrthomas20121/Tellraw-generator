@@ -6,7 +6,7 @@ function importFile () {
 
  dialog.showOpenDialog({ filters: [
 
-   { name: 'tellraw files', extensions: ['tellraw', 'command_block', 'mc', 'json'] }
+   { name: 'commands files', extensions: ['tellraw', 'give', 'summon','command', 'mc', 'json'] }
   
   ]}, function(fileNames) {
 
@@ -14,7 +14,6 @@ function importFile () {
 
   var fileName = fileNames[0];
   let data = fs.readFileSync(fileName, { encoding: 'utf-8'}) 
-  // console.log(data);
   data = JSON.parse(data);
   document.getElementById('color').value=data.color;
   document.getElementById('text').value=data.text.replace('@p','');
@@ -34,7 +33,7 @@ function importFile () {
   if(data.selector == '@s') {
     document.getElementById('@s').setAttribute('selected', '')
   }
-  updatecmd();
+  tellraw();
 
  }); 
 
@@ -44,7 +43,7 @@ function exportFile () {
 
     dialog.showSaveDialog({ filters: [
 
-        { name: 'json format', extensions: ['tellraw', 'command_block', 'mc', 'json'] },
+        { name: 'json format', extensions: ['tellraw', 'give', 'summon','command', 'mc', 'json'] },
         { name: 'any', extensions: ['*']}
   
       ]}, (fileName) => {
