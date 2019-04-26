@@ -15,12 +15,14 @@ function importFile () {
   var fileName = fileNames[0];
   let data = fs.readFileSync(fileName, { encoding: 'utf-8'}) 
   data = JSON.parse(data);
-  if(process.mainModule.filename.includes('summon')) {
-    document.getElementById('entity').value = data.entity;
-    document.getElementById('customName').value = data.customName;
-    summon()
+  if(process.mainModule.filename.includes('summon') || data.hasOwnProperty('type')) {
+    if(data.type == 'summon') {
+      document.getElementById('entity').value = data.entity;
+      document.getElementById('customName').value = data.customName;
+      summon()
+    }
   }
-  else if(process.mainModule.filename.includes('tellraw')) {
+  else if(process.mainModule.filename.includes('tellraw') || data.hasOwnProperty('text')) {
     document.getElementById('color').value=data.color;
     document.getElementById('text').value=data.text.replace('@p','');
     document.getElementById('bold').checked=data.bold;
@@ -62,7 +64,8 @@ function exportFile () {
         let entity = document.getElementById('entity').value;
         let customName = document.getElementById('customName').value;
         exportObj = {
-          entity:entity,
+          type:'summon',
+          entity,
           customName
         };
         if(customName == '') {
