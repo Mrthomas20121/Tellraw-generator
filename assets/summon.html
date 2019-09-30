@@ -19,30 +19,125 @@
     <div class="form-group">
     <label for="entity">Entity</label>
     <select id="entity" name="entity" class="form-control" onchange="summon()">
-    <option value="minecraft:zombie" selected>Zombie</option>
-    <option value="minecraft:skeleton">Skeleton</option>
-    <option value="minecraft:enderdragon">EnderDragon</option>
-    <option value="minecraft:slime">Slime</option>
-    <option value="minecraft:endercrystal">EnderCrystal</option>
-    <option value="minecraft:witherskeleton">Wither Skeleton</option>
-    <option value="minecraft:wither">Wither</option>
-    <option value="minecraft:spider">Spider</option>
-    <option value="minecraft:cavespider">Cave Spider</option>
+      <option value="area_effect_cloud">area_effect_cloud</option>
+      <option value="armor_stand">armor_stand</option>
+      <option value="arrow">arrow</option>
+      <option value="bat">bat</option>
+      <option value="blaze">blaze</option>
+      <option value="boat">boat</option>
+      <option value="cat">cat</option>
+      <option value="cave_spider">cave_spider</option>
+      <option value="chest_minecart">chest_minecart</option>
+      <option value="chicken">chicken</option>
+      <option value="cod">cod</option>
+      <option value="command_block_minecart">command_block_minecart</option>
+      <option value="cow">cow</option>
+      <option value="creeper">creeper</option>
+      <option value="dolphin">dolphin</option>
+      <option value="donkey">donkey</option>
+      <option value="dragon_fireball">dragon_fireball</option>
+      <option value="drowned">drowned</option>
+      <option value="egg">egg</option>
+      <option value="elder_guardian">elder_guardian</option>
+      <option value="end_crystal">end_crystal</option>
+      <option value="ender_dragon">ender_dragon</option>
+      <option value="ender_pearl">ender_pearl</option>
+      <option value="enderman">enderman</option>
+      <option value="endermite">endermite</option>
+      <option value="evoker_fangs">evoker_fangs</option>
+      <option value="evoker">evoker</option>
+      <option value="experience_orb">experience_orb</option>
+      <option value="eye_of_ender">eye_of_ender</option>
+      <option value="falling_block">falling_block</option>
+      <option value="fireball">fireball</option>
+      <option value="firework_rocket">firework_rocket</option>
+      <option value="fox">fox</option>
+      <option value="furnace_minecart">furnace_minecart</option>
+      <option value="hopper_minecart">hopper_minecart</option>
+      <option value="ghast">ghast</option>
+      <option value="giant">giant</option>
+      <option value="guardian">guardian</option>
+      <option value="horse">horse</option>
+      <option value="husk">husk</option>
+      <option value="illusioner">illusioner</option>
+      <option value="iron_golem">iron_golem</option>
+      <option value="item">item</option>
+      <option value="item_frame">item_frame</option>
+      <option value="leash_knot">leash_knot</option>
+      <option value="lightning_bolt">lightning_bolt</option>
+      <option value="llama">llama</option>
+      <option value="llama_spit">llama_spit</option>
+      <option value="magma_cube">magma_cube</option>
+      <option value="minecart">minecart</option>
+      <option value="mooshroom">mooshroom</option>
+      <option value="mule">mule</option>
+      <option value="ocelot">ocelot</option>
+      <option value="painting">painting</option>
+      <option value="panda">panda</option>
+      <option value="parrot">parrot</option>
+      <option value="phantom">phantom</option>
+      <option value="pig">pig</option>
+      <option value="pillager">pillager</option>
+      <option value="polar_bear">polar_bear</option>
+      <option value="potion">potion</option>
+      <option value="pufferfish">pufferfish</option>
+      <option value="rabbit">rabbit</option>
+      <option value="ravager">ravager</option>
+      <option value="salmon">salmon</option>
+      <option value="sheep">sheep</option>
+      <option value="shulker">shulker</option>
+      <option value="shulker_bullet">shulker_bullet</option>
+      <option value="silverfish">silverfish</option>
+      <option value="skeleton">skeleton</option>
+      <option value="skeleton_horse">skeleton_horse</option>
+      <option value="slime">slime</option>
+      <option value="small_fireball">small_fireball</option>
+      <option value="snowball">snowball</option>
+      <option value="snow_golem">snow_golem</option>
+      <option value="spawner_minecart">spawner_minecart</option>
+      <option value="spectral_arrow">spectral_arrow</option>
+      <option value="spider">spider</option>
+      <option value="squid">squid</option>
+      <option value="stray">stray</option>
+      <option value="tnt">tnt</option>
+      <option value="tnt_minecart">tnt_minecart</option>
+      <option value="trader_llama">trader_llama</option>
+      <option value="trident">trident</option>
+      <option value="tropical_fish">tropical_fish</option>
+      <option value="turtle">turtle</option>
+      <option value="vex">vex</option>
+      <option value="villager">villager</option>
+      <option value="vindicator">vindicator</option>
+      <option value="witch">witch</option>
+      <option value="wandering_trader">wandering_trader</option>
+      <option value="wither">wither</option>
+      <option value="wither_skull">wither_skull</option>
+      <option value="wither_skeleton">wither_skeleton</option>
+      <option value="wolf">wolf</option>
+      <option value="experience_bottle">experience_bottle</option>
+      <option value="zombie">zombie</option>
+      <option value="zombie_horse">zombie_horse</option>
+      <option value="zombie_pigman">zombie_pigman</option>
+      <option value="zombie_villager">zombie_villager</option>
     </select>
+    <div class="form-group">
+      <label for="text">Coordinate</label>
+      <input id="cord" name="cord" type="text" class="form-control" oninput="summon()"/>
+    </div>
     <div class="form-group">
       <label for="text">Custom Name</label>
       <input id="customName" name="customName" type="text" class="form-control" oninput="summon()"/>
     </div>
     <fieldset>
       <legend for="cmd">Result</legend>
-      <textarea id="cmd" class="form-control" readonly></textarea>
+      <textarea id="cmd" name="cmd" class="form-control" readonly></textarea>
     </fieldset>
       <script>
         $( document ).ready(function() {
         var clipboard = new Clipboard('.clipboard');
         });
       </script>
-      <a class="button clipboard" onclick="copyCmd();" href="#"  data-clipboard-target="#cmd">Copy Command</a>
+      <a class="button clipboard" onclick="alert('command copied to clipboard')" href="#"  data-clipboard-target="#cmd">Copy Command</a>
     </div>
     <!-- handler -->
     <script src="./scripts/handler.js"></script>

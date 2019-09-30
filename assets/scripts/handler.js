@@ -1,4 +1,10 @@
 /**
+ * Simplify a string obj into
+ */
+JSON.jsonToString = function(obj='') {
+  return JSON.stringify(JSON.parse(obj))
+}
+/**
  * Handle summon command
  */
 function summon() {
@@ -6,12 +12,12 @@ function summon() {
   let entity = document.getElementById('entity').value;
   let customName = document.getElementById('customName').value;
   let cmd = {
-    customName
-  };
-  if(customName == '') {
-    delete cmd.customName
+    customName:document.getElementById('customName').value
   }
-  result.innerHTML = `/summon ${entity} ${JSON.stringify(cmd)}`
+  if(customName == '') {
+    delete cmd.customName;
+  }
+  result.innerHTML = `/summon minecraft:${entity} ${JSON.stringify(cmd)}`
 }
 /**
  * handle Tellraw Command
@@ -82,8 +88,8 @@ function tellraw() {
   else if(color == 'gold') {
     preview.style.color = '#FFAA00'
   }
-  else if(color == 'rose') {
-    preview.style.color = '#FFAA00'
+  else if(color == 'light_purple') {
+    preview.style.color = '#FF55FF'
   }
 
   if(typeof cmd.text == 'string') {
@@ -106,5 +112,5 @@ function tellraw() {
  * Handle Give Command
  */
 function give() {
-  
+  // syntax: /give @user item count nbt
 }

@@ -43,7 +43,7 @@
       <option value="dark_gray">dark gray</option>
       <option value="gray">gray</option>
       <option value="black">black</option>
-      <option value="light_purple">rose</option>
+      <option value="light_purple">light_purple</option>
       <option value="purple">purple</option>
       <option value="white" selected>white</option>
       </select>
@@ -83,7 +83,7 @@
         var clipboard = new Clipboard('.clipboard');
         });
       </script>
-      <a class="button clipboard" onclick="copyCmd();" href="#"  data-clipboard-target="#cmd">Copy Command</a>
+      <a class="button clipboard" onclick="alert('command copied to clipboard')" href="#"  data-clipboard-target="#cmd">Copy Command</a>
     </div>
     <!-- handler -->
     <script src="./scripts/handler.js"></script>

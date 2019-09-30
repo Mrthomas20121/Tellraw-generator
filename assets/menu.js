@@ -18,8 +18,8 @@ function importFile () {
   if(process.mainModule.filename.includes('summon') || data.hasOwnProperty('type')) {
     if(data.type == 'summon') {
       document.getElementById('entity').value = data.entity;
-      document.getElementById('customName').value = data.customName;
-      summon()
+      document.getElementById('customName').value = data.nbt.customName;
+      summon(data.nbt)
     }
   }
   else if(process.mainModule.filename.includes('tellraw') || data.hasOwnProperty('text')) {
@@ -66,11 +66,10 @@ function exportFile () {
         exportObj = {
           type:'summon',
           entity,
-          customName
+          nbt: {
+            customName
+          }
         };
-        if(customName == '') {
-          delete cmd.customName
-        }
       }
       else if(process.mainModule.filename.includes('tellraw')) {
         let color = document.getElementById('color').value;

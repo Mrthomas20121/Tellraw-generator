@@ -1,5 +1,5 @@
 {
-  "name": "tellrawgenerator",
+  "name": "commandgenerator",
   "version": "1.2.0",
   "description": "Download and install mods!",
   "main": "app.js",
@@ -19,7 +19,7 @@
   },
   "scripts": {
     "start": "electron .",
-    "build": "electron-packager ./ TellrawGenerator --asar=true --icon=./assets/icons/main.ico --app-copyright=Mrthomas20121 --version-string.LegalCopyright=Mrthomas20121 --version-string.CompanyName=Mrthomas20121 --version-string.FileDescription=TellrawGenerator --version-string.ProductName=TellrawGenerator --version-string.OriginalFilename=TellrawGenerator.exe"
+    "build": "electron-packager ./ commandgenerator --asar=true --icon=./assets/icons/app_logo.ico"
   },
   "author": "Mrthomas20121",
   "license": "ISC"
