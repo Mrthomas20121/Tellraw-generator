@@ -1,7 +1,6 @@
 class Command extends Object {
   constructor() {
     super();
-    this.stack = 1;
   }
   setUser(user) {
     this.user = user;
@@ -17,6 +16,7 @@ class Give extends Command {
 
   constructor() {
     super();
+    this.stack = 1;
   }
   setItem(item) {
     this.item = item;
@@ -26,6 +26,7 @@ class Give extends Command {
     if(typeof nb != 'undefined') {
       this.stack = nb;
     }
+    return this;
   }
 }
 
@@ -45,3 +46,9 @@ class Summon extends Command {
 
 let zombie = new Summon().setEntity('zombie').setNbt({ customName:{ text:'zombey', color:'red' }});
 console.log(zombie);
+
+
+module.exports = {
+  Give,
+  Summon
+}

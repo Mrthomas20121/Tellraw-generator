@@ -70,6 +70,7 @@ function exportFile () {
             customName
           }
         };
+        exportObj = window.summon_cmd;
       }
       else if(process.mainModule.filename.includes('tellraw')) {
         let color = document.getElementById('color').value;

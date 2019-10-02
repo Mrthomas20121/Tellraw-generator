@@ -1,0 +1,7 @@
+{
+  "type": "summon",
+  "entity": "area_effect_cloud",
+  "nbt": {
+    "customName": "HeyGuys"
+  }
+}

@@ -11,13 +11,18 @@ function summon() {
   let result = document.getElementById('cmd');
   let entity = document.getElementById('entity').value;
   let customName = document.getElementById('customName').value;
-  let cmd = {
-    customName:document.getElementById('customName').value
-  }
+  // let cmd = {
+  //   customName:{
+  //    text:customName
+  //   }
+  // }
+  const Summon = require('./scripts/classes').Summon;
+  let cmd = new Summon().setEntity(entity).setNbt({ customName:{ text:customName } });
   if(customName == '') {
     delete cmd.customName;
   }
-  result.innerHTML = `/summon minecraft:${entity} ${JSON.stringify(cmd)}`
+  window["summon_cmd"] = cmd;
+  result.innerHTML = `/summon ${cmd.entity} ~ ~ ~ ${JSON.stringify(cmd.nbt)}`
 }
 /**
  * handle Tellraw Command
@@ -57,43 +62,18 @@ function tellraw() {
   if(res.length == 1)   cmd = `tellraw ${selector} ${JSON.stringify(cmd)}`;
   else cmd = `tellraw ${selector} ${JSON.stringify(res)}`;
   result.value = cmd;
-  var preview = document.getElementById('preview')
-  if(color == 'red') {
-    preview.style.color = '#FF5555'
-  }
-  else if(color == 'dark_red') {
-    preview.style.color = '#AA0000'
-  }
-  else if(color == 'dark_blue') {
-    preview.style.color = '#0000AA'
-  }
-  else if(color == 'blue') {
-    preview.style.color = '#5555FF'
-  }
-  else if(color == 'aqua') {
-    preview.style.color = '#55FFFF'
-  }
-  else if(color == 'dark_aqua') {
-    preview.style.color = '#00AAAA'
-  }
-  else if(color == 'green') {
-    preview.style.color = '#55FF55'
-  }
-  else if(color == 'dark_green') {
-    preview.style.color = '#00AA00'
-  }
-  else if(color == 'yellow') {
-    preview.style.color = '#FFFF55'
-  }
-  else if(color == 'gold') {
-    preview.style.color = '#FFAA00'
-  }
-  else if(color == 'light_purple') {
-    preview.style.color = '#FF55FF'
+  let preview = document.getElementById('preview');
+
+  let colors = require('./scripts/colors.json');
+  for (const item of colors) {
+    if(item.color == color) {
+      preview.style.color = item.hex;
+      // console.log(preview.style.color)
+    }
   }
 
-  if(typeof cmd.text == 'string') {
-    preview.innerHTML = cmd.text
+  if(typeof text != 'undefined') {
+    preview.innerHTML = `<p style="border: 2px solid #000">${text}</p>`
   }
   if(bold) {
     preview.style.fontWeight = 'bold'
