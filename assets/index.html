@@ -2,8 +2,8 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <title>
-    Mrthomas20121's tellraw generator
+    <title data="index">
+      
     </title>
     <!-- css and scripts -->
     <script>
@@ -18,12 +18,16 @@
   <div class="container-fluid">
   Welcome to Mrthomas20121 commands generator for minecraft
     <div class="btn-group">
-      <button class="btn btn-primary" onclick="location.assign('tellraw.html')">Tellraw Generator</button><button class="btn btn-primary" onclick="location.assign('summon.html')">Summon Generator</button>
+      <button class="btn btn-primary" onclick="app.loadPage('tellraw')">Tellraw Generator</button><button class="btn btn-primary" onclick="app.loadPage('summon')">Summon Generator</button>
     </div>
   </div>
     <!-- Jquery Loading -->
+    <script src="./scripts/app.js">
+      // app Script
+    </script>
     <script>
-      window.$ = window.jQuery = require('../node_modules/jquery/dist/jquery.js');  
+      window.$ = window.jQuery = require('../node_modules/jquery/dist/jquery.js');
+      app.setTitle();
     </script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
   </div>

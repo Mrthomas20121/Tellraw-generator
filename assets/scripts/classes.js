@@ -10,6 +10,9 @@ class Command extends Object {
     this.nbt = nbt;
     return this;
   }
+  getThis() {
+    return this.user + ' ' + JSON.stringify(this);
+  }
 }
 
 class Give extends Command {
@@ -32,7 +35,7 @@ class Give extends Command {
 
 let test = new Give();
 let res = test.setUser('@p').setItem('minecraft:carrot').setNbt({ count:1 });
-console.log(JSON.stringify(res, null, 2));
+console.log(res.getThis());
 
 class Summon extends Command {
   constructor() {
