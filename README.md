@@ -5,6 +5,6 @@ easy import / export file to edit existing command/export commands(CTRL+I = impo
 | Command | Supported |
 | :-------------: |:-------------:|
 | Tellraw          | Yes              |
-| Summon | Soon |
-| Give | Soon |
+| Summon | Partially supported |
+| Give | Partially supported |
 | Execute| No 
