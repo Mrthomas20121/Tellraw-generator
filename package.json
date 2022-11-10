@@ -4,7 +4,7 @@
   "description": "Download and install mods!",
   "main": "app.js",
   "dependencies": {
-    "electron": "^2.0.17",
+    "electron": "^18.3.7",
     "magic-check": "^1.0.3",
     "popper.js": "^1.14.7"
   },
